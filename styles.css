@@ -27,6 +27,51 @@
 
   --container: 1070px;
   --gutter: 24px;
+  --ease-reveal: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =====================================================================
+   SCROLL REVEAL (desktop + mobile) — enhanced only when JS is present
+   ===================================================================== */
+html.js-reveal [data-reveal] {
+  opacity: 0;
+  transition: opacity 0.7s var(--ease-reveal), transform 0.7s var(--ease-reveal);
+  will-change: opacity, transform;
+}
+html.js-reveal [data-reveal].is-visible {
+  opacity: 1;
+}
+html.js-reveal [data-reveal="up"] {
+  transform: translateY(26px);
+}
+html.js-reveal [data-reveal="up"].is-visible {
+  transform: none;
+}
+
+html.js-reveal [data-reveal-group] > * {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s var(--ease-reveal), transform 0.6s var(--ease-reveal);
+  will-change: opacity, transform;
+}
+html.js-reveal [data-reveal-group].is-visible > * {
+  opacity: 1;
+  transform: none;
+}
+html.js-reveal [data-reveal-group].is-visible > *:nth-child(1) { transition-delay: 0s; }
+html.js-reveal [data-reveal-group].is-visible > *:nth-child(2) { transition-delay: 0.07s; }
+html.js-reveal [data-reveal-group].is-visible > *:nth-child(3) { transition-delay: 0.14s; }
+html.js-reveal [data-reveal-group].is-visible > *:nth-child(4) { transition-delay: 0.21s; }
+html.js-reveal [data-reveal-group].is-visible > *:nth-child(5) { transition-delay: 0.28s; }
+html.js-reveal [data-reveal-group].is-visible > *:nth-child(6) { transition-delay: 0.35s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html.js-reveal [data-reveal],
+  html.js-reveal [data-reveal-group] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 * {
@@ -595,7 +640,7 @@ a {
   :root { --gutter: 16px; }
   .container { max-width: calc(100% - 32px); }
 
-  .hero__art { width: min(420px, calc(100% - 32px)); }
+  .hero__art { width: 120vw; max-width: none; position: relative; left: 50%; transform: translateX(-50%); margin-bottom: -40px; }
   .hero__inner { padding: 8px 0 28px; }
   .hero__brand--m { height: 40px; margin-top: 22px; }
   .hero__title { margin-top: 6px; }
