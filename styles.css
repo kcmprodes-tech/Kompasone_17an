@@ -1,0 +1,636 @@
+/* =====================================================================
+   Opini KOMPAS ONE — Landing "Bukan Tamu di Negeri Ini"
+   Design tokens from the KOMPAS.com design system (common.css).
+   Content column: 1070px, centered. Reference frame: 1440px.
+   ===================================================================== */
+
+:root {
+  /* Brand */
+  --blue: #005aa9;
+  --blue-bright: #2f80ed;   /* footer newsletter button */
+  --blue-line: #16a6e6;     /* footer top accent line */
+  --gold: #b78b00;          /* primary action button */
+  --gold-dark: #9c7600;
+  --orange: #f58220;
+
+  /* Dark surfaces */
+  --bg: #000000;
+  --bg-section: #0b0b0b;
+  --box: rgba(255, 255, 255, 0.04);
+  --box-border: rgba(255, 255, 255, 0.06);
+
+  /* Text on dark */
+  --text: #ffffff;
+  --text-dim: #b3b3b3;
+  --text-dim-2: #9a9a9a;
+  --text-dim-3: #7f7f7f;
+
+  --container: 1070px;
+  --gutter: 24px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: var(--container);
+  max-width: calc(100% - (var(--gutter) * 2));
+  margin: 0 auto;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.btn--light {
+  padding: 15px 30px;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #1a1a1a;
+  font-size: 15px;
+}
+
+.btn--blue {
+  padding: 15px 34px;
+  border-radius: 10px;
+  background: var(--blue-bright);
+  color: #ffffff;
+  font-size: 15px;
+}
+
+.btn--gold {
+  height: 48px;
+  padding: 0 30px;
+  border-radius: 10px;
+  background: var(--gold);
+  color: #ffffff;
+  font-size: 15px;
+  letter-spacing: -0.2px;
+}
+
+.btn--sm {
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.btn--light:hover { background: #f0f0f0; }
+.btn--blue:hover { background: #2b74d6; }
+.btn--gold:hover { background: var(--gold-dark); }
+
+/* =====================================================================
+   HEADER
+   ===================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #000;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.site-header__logo img {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+}
+
+.site-header__account {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+}
+
+/* =====================================================================
+   HERO
+   ===================================================================== */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 740px;
+  background: #000;
+  overflow: hidden;
+}
+
+.hero__art {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: 8px;
+  width: 720px;
+  height: auto;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 1;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 100%);
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 2;
+  padding: 58px 0 50px;
+}
+
+.hero__text {
+  width: 540px;
+  max-width: 100%;
+}
+
+.hero__brand {
+  height: 46px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* mobile-only duplicate of the brand logo (shown above the illustration) */
+.hero__brand--m {
+  display: none;
+}
+
+.hero__title {
+  margin: 26px 0 0;
+  font-family: "Lora", Georgia, serif;
+  color: #fbfbfb;
+  font-weight: 500;
+  line-height: 0.96;
+  letter-spacing: -0.5px;
+}
+
+.hero__title img {
+  width: 440px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero__title .w-reg,
+.hero__title .w-reg2,
+.hero__title .w-sm,
+.hero__title .w-bold {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.hero__title .w-reg { font-size: 54px; font-weight: 500; }
+.hero__title .w-bold { font-size: 70px; font-weight: 600; margin-left: 8px; }
+.hero__title .w-sm { font-size: 40px; font-weight: 500; }
+.hero__title .w-reg2 { font-size: 54px; font-weight: 500; margin-left: 10px; }
+.hero__title br + .w-sm { margin-left: 0; }
+
+.hero__desc {
+  width: 520px;
+  max-width: 100%;
+  margin: 26px 0 0;
+  color: #d6d6d6;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.hero__price {
+  margin: 26px 0 0;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  color: #fff;
+}
+
+.hero__note {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: var(--text-dim-2);
+}
+
+.hero .btn--gold {
+  margin-top: 34px;
+}
+
+/* =====================================================================
+   INTRO + DEVICE BANNER
+   ===================================================================== */
+.intro {
+  background: #111111;
+  padding: 96px 0 0;
+  text-align: center;
+}
+
+.intro__lead {
+  max-width: 830px;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.intro__banner {
+  margin-top: 80px;
+}
+
+.intro__banner img {
+  width: min(1180px, 96vw);
+  max-width: none;
+  margin: 0 auto;
+  height: auto;
+}
+
+/* =====================================================================
+   TWO COLUMN
+   ===================================================================== */
+.twocol {
+  background: #111111;
+  padding: 72px 0 84px;
+}
+
+.twocol__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.twocol__title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  line-height: 1.3;
+  color: #fff;
+}
+
+.twocol__body {
+  margin: 16px 0 0;
+  color: var(--text-dim-2);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* =====================================================================
+   BENEFIT (Kontan / KOMPAS.com+ MAX)
+   ===================================================================== */
+.benefit {
+  background: #151515;
+  padding: 0;
+}
+
+.benefit__stage {
+  position: relative;
+  min-height: 642px;
+}
+
+/* soft radial glow behind the phones (bg #151515 → #505050) */
+.benefit__stage::before {
+  content: "";
+  position: absolute;
+  top: 44px;
+  left: calc(50% - 25px);
+  width: 720px;
+  height: 540px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, #505050 0%, #151515 68%);
+  opacity: 0.5;
+  filter: blur(34px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.benefit__card {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  padding: 34px 40px 38px;
+  border-radius: 22px;
+  background: var(--box);
+  border: 1px solid var(--box-border);
+}
+
+.benefit__card--left {
+  left: 0;
+  top: 96px;
+  width: 340px;
+}
+
+.benefit__card--right {
+  right: 0;
+  top: 214px;
+  width: 400px;
+  padding-left: 44px;
+}
+
+.benefit__title {
+  margin: 0;
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  line-height: 1.3;
+  color: #fff;
+}
+
+.benefit__body {
+  margin: 16px 0 0;
+  color: var(--text-dim);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.benefit__devices {
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 25px);
+  width: 500px;
+  height: auto;
+  transform: translateX(-50%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* =====================================================================
+   CTA
+   ===================================================================== */
+.cta {
+  position: relative;
+  background: #050505;
+  overflow: hidden;
+  text-align: center;
+}
+
+.cta__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  z-index: 0;
+}
+
+.cta__inner {
+  position: relative;
+  z-index: 2;
+  padding: 168px 0 174px;
+}
+
+.cta__brand {
+  height: 44px;
+  width: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.cta__title {
+  margin: 26px 0 0;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  line-height: 1.28;
+  color: #fff;
+}
+
+.cta__sub {
+  margin: 18px auto 0;
+  max-width: 860px;
+  color: var(--text-dim);
+  font-size: 17px;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.cta .btn--gold {
+  margin-top: 30px;
+}
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+.site-footer {
+  background: #000;
+  border-top: 3px solid var(--blue-line);
+  padding: 40px 0 92px;
+}
+
+.site-footer__inner {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 40px;
+}
+
+.site-footer__logo {
+  height: 34px;
+  width: auto;
+  object-fit: contain;
+}
+
+.site-footer__award-label {
+  margin: 26px 0 12px;
+  color: var(--text-dim);
+  font-size: 13px;
+}
+
+.site-footer__awards {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.site-footer__awards img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.site-footer__right {
+  text-align: right;
+}
+
+.site-footer__newsletter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.site-footer__newsletter span {
+  color: var(--text-dim);
+  font-size: 14px;
+}
+
+.site-footer__stores {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.site-footer__stores img {
+  height: 46px;
+  width: auto;
+  object-fit: contain;
+}
+
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px 14px;
+  margin-top: 40px;
+}
+
+.site-footer__links a {
+  color: #d6d6d6;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.site-footer__links a:hover {
+  color: #fff;
+}
+
+.site-footer__copy {
+  margin: 12px 0 0;
+  color: var(--text-dim-2);
+  font-size: 13px;
+}
+
+/* =====================================================================
+   RESPONSIVE (graceful shrink below the 1070 reference)
+   ===================================================================== */
+@media (max-width: 1120px) {
+  .hero__art { width: 560px; opacity: 0.92; }
+}
+
+/* ---- Tablet / stacked layout ---- */
+@media (max-width: 860px) {
+  .hero { display: flex; flex-direction: column; align-items: center; }
+  .hero__brand--m {
+    display: block;
+    order: 1;
+    height: 42px;
+    width: auto;
+    margin: 28px auto 0;
+  }
+  .hero__text > .hero__brand { display: none; }
+  .hero__art {
+    order: 2;
+    position: static;
+    width: min(480px, calc(100% - 32px));
+    margin: 16px auto 0;
+    transform: none;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .hero__inner { order: 3; padding: 16px 0 24px; }
+  .hero__text { width: 100%; }
+  .twocol__grid,
+  .site-footer__inner { grid-template-columns: 1fr; gap: 32px; }
+  .benefit__stage { min-height: 0; display: flex; flex-direction: column; gap: 20px; }
+  .benefit__stage::before { display: none; }
+  .benefit__card { position: static; width: 100%; top: auto; padding: 28px 28px 30px; }
+  .benefit__card--right { padding-left: 28px; }
+  .benefit__devices { position: static; transform: none; width: min(460px, 100%); margin: 0 auto; order: -1; }
+  .site-footer__right { text-align: left; }
+  .site-footer__newsletter,
+  .site-footer__stores,
+  .site-footer__links { justify-content: flex-start; }
+  .hero__title .w-bold { font-size: 52px; }
+  .hero__title .w-reg, .hero__title .w-reg2 { font-size: 40px; }
+  .hero__title .w-sm { font-size: 30px; }
+  .hero__title img { width: 360px; }
+}
+
+/* ---- Phone: 16px side gutter + compact spacing, no overflow ---- */
+@media (max-width: 640px) {
+  :root { --gutter: 16px; }
+  .container { max-width: calc(100% - 32px); }
+
+  .hero__art { width: min(420px, calc(100% - 32px)); }
+  .hero__inner { padding: 8px 0 28px; }
+  .hero__brand--m { height: 40px; margin-top: 22px; }
+  .hero__title { margin-top: 22px; }
+  .hero__title .w-bold { font-size: 44px; }
+  .hero__title .w-reg, .hero__title .w-reg2 { font-size: 34px; }
+  .hero__title .w-sm { font-size: 26px; }
+  .hero__title .w-bold { margin-left: 6px; }
+  .hero__title .w-reg2 { margin-left: 7px; }
+  .hero__title img { width: 280px; }
+  .hero__desc, .hero__price, .hero__note { width: auto; max-width: 100%; }
+  .hero__desc { font-size: 16px; margin-top: 20px; }
+  .hero__price { font-size: 21px; margin-top: 22px; }
+  .hero .btn--gold { margin-top: 28px; }
+
+  .intro { padding: 52px 0 0; }
+  .intro__lead { font-size: 18px; max-width: 100%; }
+  .intro__banner { margin-top: 40px; padding: 0 16px; }
+  .intro__banner img { width: 100%; }
+
+  .twocol { padding: 56px 0 8px; }
+  .twocol__grid { gap: 28px; }
+  .twocol__title { font-size: 20px; }
+
+  .benefit { padding: 24px 0 40px; }
+  .benefit__title { font-size: 21px; }
+  .benefit__body { font-size: 16px; }
+
+  .cta__inner { padding: 64px 0 72px; }
+  .cta__brand { height: 38px; }
+  .cta__title { font-size: 25px; margin-top: 20px; }
+  .cta__title br { display: none; }
+  .cta__sub { font-size: 15px; white-space: normal; }
+
+  .site-footer { padding: 32px 0 48px; }
+  .site-footer__inner { gap: 28px; }
+  .site-footer__newsletter { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .site-footer__newsletter span { font-size: 13.5px; }
+  .site-footer__stores { flex-wrap: wrap; }
+}
