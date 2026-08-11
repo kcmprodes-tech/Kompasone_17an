@@ -157,19 +157,18 @@ a {
   position: relative;
   display: flex;
   align-items: center;
-  min-height: 740px;
+  min-height: 640px;
   background: #000;
   overflow: hidden;
 }
 
 .hero__art {
   position: absolute;
-  top: 50%;
+  bottom: 4px;
   left: calc(50% - 125px);
   margin-left: 0;
-  width: 720px;
+  width: 680px;
   height: auto;
-  transform: translateY(-50%);
   pointer-events: none;
   z-index: 1;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 100%);
@@ -179,7 +178,7 @@ a {
 .hero__inner {
   position: relative;
   z-index: 2;
-  padding: 58px 0 50px;
+  padding: 44px 0 40px;
 }
 
 .hero__text {
@@ -274,7 +273,7 @@ a {
 }
 
 .intro__banner {
-  margin-top: 80px;
+  margin-top: 48px;
 }
 
 .intro__banner img {
@@ -289,7 +288,7 @@ a {
    ===================================================================== */
 .twocol {
   background: #111111;
-  padding: 72px 0 84px;
+  padding: 58px 0 84px;
 }
 
 .twocol__grid {
@@ -571,7 +570,8 @@ a {
     mask-image: none;
   }
   .hero__inner { order: 3; padding: 16px 0 24px; }
-  .hero__text { width: 100%; }
+  .hero__text { width: 100%; text-align: center; }
+  .hero .btn--gold { margin-bottom: 32px; }
   .twocol__grid,
   .site-footer__inner { grid-template-columns: 1fr; gap: 32px; }
   .benefit__stage { min-height: 0; display: flex; flex-direction: column; gap: 20px; }
@@ -583,10 +583,11 @@ a {
   .site-footer__newsletter,
   .site-footer__stores,
   .site-footer__links { justify-content: flex-start; }
+  .hero__title { text-align: center; margin-top: 7px; }
   .hero__title .w-bold { font-size: 52px; }
   .hero__title .w-reg, .hero__title .w-reg2 { font-size: 40px; }
   .hero__title .w-sm { font-size: 30px; }
-  .hero__title img { width: 360px; }
+  .hero__title img { width: 360px; margin-left: auto; margin-right: auto; }
 }
 
 /* ---- Phone: 16px side gutter + compact spacing, no overflow ---- */
@@ -597,7 +598,7 @@ a {
   .hero__art { width: min(420px, calc(100% - 32px)); }
   .hero__inner { padding: 8px 0 28px; }
   .hero__brand--m { height: 40px; margin-top: 22px; }
-  .hero__title { margin-top: 22px; }
+  .hero__title { margin-top: 6px; }
   .hero__title .w-bold { font-size: 44px; }
   .hero__title .w-reg, .hero__title .w-reg2 { font-size: 34px; }
   .hero__title .w-sm { font-size: 26px; }
@@ -614,7 +615,7 @@ a {
   .intro__banner { margin-top: 40px; padding: 0 16px; }
   .intro__banner img { width: 100%; }
 
-  .twocol { padding: 56px 0 8px; }
+  .twocol { padding: 28px 0 40px; }
   .twocol__grid { gap: 28px; }
   .twocol__title { font-size: 20px; }
 
