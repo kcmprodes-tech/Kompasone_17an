@@ -165,7 +165,7 @@ a {
 .hero__art {
   position: absolute;
   top: 50%;
-  left: calc(50% - 185px);
+  left: calc(50% - 125px);
   margin-left: 0;
   width: 720px;
   height: auto;
