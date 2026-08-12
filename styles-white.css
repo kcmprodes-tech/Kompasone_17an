@@ -624,6 +624,8 @@ a {
   .hero .btn--gold { margin-bottom: 32px; }
   .trio__grid,
   .site-footer__inner { grid-template-columns: 1fr; gap: 32px; }
+  .trio__col { text-align: center; }
+  .trio__icon { margin-left: auto; margin-right: auto; }
   .benefit__stage { min-height: 0; display: flex; flex-direction: column; gap: 20px; }
   .benefit__stage::before { display: none; }
   .benefit__card { position: static; width: 100%; top: auto; padding: 28px 28px 30px; }
@@ -664,11 +666,11 @@ a {
   .intro__banner { margin-top: 40px; padding: 0 16px; }
   .intro__banner img { width: 100%; }
 
-  .trio { padding: 56px 0 8px; }
+  .trio { padding: 56px 0 60px; }
   .trio__grid { gap: 32px; }
   .trio__icon { width: 72px; height: 74px; margin-bottom: 18px; }
 
-  .benefit { padding: 24px 0 40px; }
+  .benefit { padding: 60px 0 60px; }
   .benefit__title { font-size: 21px; }
 
   .cta .container { padding: 56px 0 64px; }
