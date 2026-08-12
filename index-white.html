@@ -11,6 +11,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles-white.css" />
+    <script>
+      document.documentElement.classList.add("js-reveal");
+    </script>
   </head>
   <body>
     <!-- ============ HEADER (dark) ============ -->
@@ -31,21 +34,19 @@
     <!-- ============ HERO (light) ============ -->
     <section class="hero">
       <img class="hero__brand hero__brand--m" src="./asset/asset white/logo-kompasone-premium_black.png" alt="" aria-hidden="true" />
-      <img class="hero__art" src="./asset/asset white/banner-gold-white.png" alt="" aria-hidden="true" />
+      <img class="hero__art" src="./asset/asset white/banner-gold-white.png" alt="" aria-hidden="true" data-reveal />
       <div class="container hero__inner">
-        <div class="hero__text">
+        <div class="hero__text" data-reveal-group>
           <img class="hero__brand" src="./asset/asset white/logo-kompasone-premium_black.png" alt="KOMPAS ONE Premium" />
           <h1 class="hero__title">
-            <span class="w-reg">Bukan</span><span class="w-bold">Tamu</span><br />
-            <span class="w-sm">di</span><span class="w-bold">Negeri</span><span class="w-reg2">Ini</span>
+            <img src="./asset/asset white/Logo bukan tamu black.png" alt="Bukan Tamu di Negeri Ini" />
           </h1>
           <p class="hero__desc">
             Dalam semangat merayakan kemerdekaan untuk menumbuhkan dan merawat harapan,
             Rubrik Opini Kompas menghadirkan Edisi Eksklusif HUT-81 RI: &ldquo;Bukan Tamu di Negeri Ini&rdquo;.
           </p>
-          <p class="hero__price">Mulai dari Rp60.000/bulan</p>
-          <p class="hero__note">*Dibayar langsung setahun</p>
-          <a class="btn btn--gold" href="https://plus.kompas.com/package?product=web.kcmplus.one.premium.1month&amp;utm_source=kompascom&amp;utm_medium=landingpage&amp;utm_campaign=bukantamudinegeriini">Beli Sekarang</a>
+          <p class="hero__price">Hanya dengan Rp119.000</p>
+          <a class="btn btn--gold" href="https://gerai.kompas.id/belanja/edsus/edisi-opini-kompasone/">Beli Sekarang</a>
         </div>
       </div>
     </section>
@@ -53,22 +54,25 @@
     <!-- ============ INTRO + DEVICE BANNER (light) ============ -->
     <section class="intro">
       <div class="container">
-        <p class="intro__lead">
+        <p class="intro__lead" data-reveal="up">
           Edisi ini mengajak Anda untuk mengambil bagian, yang dimulai dengan mendengarkan
           gagasan dari para pemikir pilihan lintas bidang. Melalui beragam perspektif, dan menantang
           kita untuk memaknai ulang peran kita dalam kehidupan bersama.
         </p>
       </div>
-      <div class="intro__banner">
-        <img src="./asset/asset white/banner tengah white.png" alt="Tampilan newsletter KOMPAS.com+ dan para penulis opini" />
+      <div class="intro__banner" data-reveal="up">
+        <picture>
+          <source media="(max-width: 640px)" srcset="./asset/asset%20white/banner%20tengah%20white%20rev%20mobile.png" />
+          <img src="./asset/asset white/banner tengah white rev.png" alt="Tampilan newsletter KOMPAS.com+ dan para penulis opini" />
+        </picture>
       </div>
     </section>
 
     <!-- ============ THREE COLUMN ============ -->
     <section class="trio">
-      <div class="container trio__grid">
+      <div class="container trio__grid" data-reveal-group>
         <div class="trio__col">
-          <span class="trio__icon" aria-hidden="true"></span>
+          <img class="trio__icon" src="./asset/asset white/koran-opini.png" alt="" aria-hidden="true" />
           <h3 class="trio__title">Koran Kompas Edisi Koleksi (18 Agustus 2026)</h3>
           <p class="trio__body">
             Simpan artefak fisik yang memuat 16 gagasan tajam dari cendekiawan dan tokoh berdedikasi
@@ -76,15 +80,16 @@
           </p>
         </div>
         <div class="trio__col">
-          <span class="trio__icon" aria-hidden="true"></span>
-          <h3 class="trio__title">Akses Digital Kompas.id 3 Bulan</h3>
+          <img class="trio__icon" src="./asset/asset white/kdp-phone.png" alt="" aria-hidden="true" />
+          <h3 class="trio__title">Akses Premium Kompas ONE</h3>
           <p class="trio__body">
             Perluas wawasan Anda tanpa paywall. Nikmati pengalaman membaca tanpa batas ke seluruh
-            artikel premium, laporan mendalam, serta ratusan arsip opini ahli di ekosistem digital Kompas.id
+            artikel premium, laporan mendalam, serta ratusan arsip opini ahli di ekosistem digital
+            Premium Kompas.com+ MAX, Kompas.id &amp; Kontan
           </p>
         </div>
         <div class="trio__col">
-          <span class="trio__icon" aria-hidden="true"></span>
+          <img class="trio__icon" src="./asset/asset white/notebook.png" alt="" aria-hidden="true" />
           <h3 class="trio__title">Spesial Merchandise Notebook Opini</h3>
           <p class="trio__body">
             Dapatkan merchandise menarik dan fungsional spesial edisi untuk Opini.
@@ -96,20 +101,20 @@
     <!-- ============ KONTAN / MAX (light) ============ -->
     <section class="benefit">
       <div class="container benefit__stage">
-        <div class="benefit__card benefit__card--left">
+        <div class="benefit__card benefit__card--left" data-reveal="up">
           <h3 class="benefit__title">Akses Business Insight di Kontan</h3>
           <p class="benefit__body">
             Konten eksklusif dan e-paper untuk ikuti analisis pasar, dan strategi bisnis terkini.
           </p>
         </div>
-        <div class="benefit__card benefit__card--right">
+        <div class="benefit__card benefit__card--right" data-reveal="up">
           <h3 class="benefit__title">Akses Eksklusif dan Konten Orisinal di Kompas.com+ MAX</h3>
           <p class="benefit__body">
             Akses penuh ke konten orisinal yang memberikan perspektif baru. Morning Brief dan
             berbagai podcast eksklusif. Dan email newsletter eksklusif penuh insight buat Anda.
           </p>
         </div>
-        <img class="benefit__devices" src="./asset/kontan-device.png" alt="Tampilan Kontan Business Insight dan KOMPAS.com" />
+        <img class="benefit__devices" src="./asset/kontan-device.png" alt="Tampilan Kontan Business Insight dan KOMPAS.com" data-reveal />
       </div>
     </section>
 
@@ -117,18 +122,18 @@
     <section class="cta">
       <img class="cta__bg" src="./asset/asset white/banner bawah putih.png" alt="" aria-hidden="true" />
       <div class="container">
-        <div class="cta__panel">
+        <div class="cta__panel" data-reveal-group>
           <img class="cta__brand" src="./asset/asset white/logo-kompasone-premium_black.png" alt="KOMPAS ONE Premium" />
           <h2 class="cta__title">Dapatkan Edisi khususnya sekarang <br />Hanya Rp119.000</h2>
           <p class="cta__sub">Dengan bergabung Membership, Anda juga memberikan dukungan untuk jurnalisme jernih.</p>
-          <a class="btn btn--gold" href="https://plus.kompas.com/package?product=web.kcmplus.one.premium.1month&amp;utm_source=kompascom&amp;utm_medium=landingpage&amp;utm_campaign=bukantamudinegeriini">Beli Sekarang</a>
+          <a class="btn btn--gold" href="https://gerai.kompas.id/belanja/edsus/edisi-opini-kompasone/">Beli Sekarang</a>
         </div>
       </div>
     </section>
 
     <!-- ============ FOOTER (dark) ============ -->
     <footer class="site-footer">
-      <div class="container site-footer__inner">
+      <div class="container site-footer__inner" data-reveal="up">
         <div class="site-footer__left">
           <img class="site-footer__logo" src="./asset/logo kompascom putih.png" alt="KOMPAS.com — Jernih Melihat Dunia" />
           <p class="site-footer__award-label">Penghargaan dan sertifikat:</p>
@@ -168,5 +173,6 @@
         </div>
       </div>
     </footer>
+    <script src="./reveal.js"></script>
   </body>
 </html>

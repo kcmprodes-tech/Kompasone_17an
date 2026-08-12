@@ -28,6 +28,51 @@
 
   --container: 1070px;
   --gutter: 24px;
+  --ease-reveal: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =====================================================================
+   SCROLL REVEAL (desktop + mobile) — enhanced only when JS is present
+   ===================================================================== */
+html.js-reveal [data-reveal] {
+  opacity: 0;
+  transition: opacity 0.7s var(--ease-reveal), transform 0.7s var(--ease-reveal);
+  will-change: opacity, transform;
+}
+html.js-reveal [data-reveal].is-visible {
+  opacity: 1;
+}
+html.js-reveal [data-reveal="up"] {
+  transform: translateY(26px);
+}
+html.js-reveal [data-reveal="up"].is-visible {
+  transform: none;
+}
+
+html.js-reveal [data-reveal-group] > * {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s var(--ease-reveal), transform 0.6s var(--ease-reveal);
+  will-change: opacity, transform;
+}
+html.js-reveal [data-reveal-group].is-visible > * {
+  opacity: 1;
+  transform: none;
+}
+html.js-reveal [data-reveal-group].is-visible > *:nth-child(1) { transition-delay: 0s; }
+html.js-reveal [data-reveal-group].is-visible > *:nth-child(2) { transition-delay: 0.07s; }
+html.js-reveal [data-reveal-group].is-visible > *:nth-child(3) { transition-delay: 0.14s; }
+html.js-reveal [data-reveal-group].is-visible > *:nth-child(4) { transition-delay: 0.21s; }
+html.js-reveal [data-reveal-group].is-visible > *:nth-child(5) { transition-delay: 0.28s; }
+html.js-reveal [data-reveal-group].is-visible > *:nth-child(6) { transition-delay: 0.35s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html.js-reveal [data-reveal],
+  html.js-reveal [data-reveal-group] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 * {
@@ -148,18 +193,19 @@ a {
    ===================================================================== */
 .hero {
   position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 640px;
   background: var(--hero-bg);
   overflow: hidden;
 }
 
 .hero__art {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: 8px;
-  width: 620px;
+  bottom: 4px;
+  left: calc(50% - 125px);
+  width: 690px;
   height: auto;
-  transform: translateY(-49%);
   pointer-events: none;
   z-index: 1;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 100%);
@@ -169,7 +215,7 @@ a {
 .hero__inner {
   position: relative;
   z-index: 2;
-  padding: 58px 0 50px;
+  padding: 44px 0 40px;
 }
 
 .hero__text {
@@ -196,6 +242,13 @@ a {
   letter-spacing: -0.5px;
 }
 
+.hero__title img {
+  width: 440px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 .hero__title .w-reg,
 .hero__title .w-reg2,
 .hero__title .w-sm,
@@ -219,7 +272,7 @@ a {
 }
 
 .hero__price {
-  margin: 26px 0 0;
+  margin: 24px 0 0;
   font-size: 24px;
   font-weight: 600;
   letter-spacing: -0.2px;
@@ -233,7 +286,7 @@ a {
 }
 
 .hero .btn--gold {
-  margin-top: 28px;
+  margin-top: 34px;
 }
 
 /* =====================================================================
@@ -255,7 +308,7 @@ a {
 }
 
 .intro__banner {
-  margin-top: 80px;
+  margin-top: 48px;
 }
 
 .intro__banner img {
@@ -270,7 +323,7 @@ a {
    ===================================================================== */
 .trio {
   background: #ffffff;
-  padding: 72px 0 90px;
+  padding: 58px 0 90px;
 }
 
 .trio__grid {
@@ -283,11 +336,10 @@ a {
 
 .trio__icon {
   display: block;
-  width: 64px;
-  height: 64px;
+  width: 72px;
+  height: 74px;
   margin-bottom: 22px;
-  border-radius: 50%;
-  background: #ededed;
+  object-fit: contain;
 }
 
 .trio__title {
@@ -342,8 +394,6 @@ a {
   padding: 34px 40px 38px;
   border-radius: 22px;
   background: var(--card);
-  border: 1px solid var(--card-border);
-  box-shadow: var(--card-shadow);
 }
 
 .benefit__card--left {
@@ -417,8 +467,7 @@ a {
   margin: 0 auto;
   padding: 56px 56px 60px;
   border-radius: 24px;
-  background: #ffffff;
-  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.14);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .cta__brand {
@@ -446,7 +495,7 @@ a {
 }
 
 .cta .btn--gold {
-  margin-top: 26px;
+  margin-top: 30px;
 }
 
 /* =====================================================================
@@ -571,7 +620,8 @@ a {
     mask-image: none;
   }
   .hero__inner { order: 3; padding: 16px 0 24px; }
-  .hero__text { width: 100%; }
+  .hero__text { width: 100%; text-align: center; }
+  .hero .btn--gold { margin-bottom: 32px; }
   .trio__grid,
   .site-footer__inner { grid-template-columns: 1fr; gap: 32px; }
   .benefit__stage { min-height: 0; display: flex; flex-direction: column; gap: 20px; }
@@ -583,9 +633,11 @@ a {
   .site-footer__newsletter,
   .site-footer__stores,
   .site-footer__links { justify-content: flex-start; }
+  .hero__title { text-align: center; margin-top: 13px; }
   .hero__title .w-bold { font-size: 52px; }
   .hero__title .w-reg, .hero__title .w-reg2 { font-size: 40px; }
   .hero__title .w-sm { font-size: 30px; }
+  .hero__title img { width: 360px; margin-left: auto; margin-right: auto; }
 }
 
 /* ---- Phone: 16px side gutter + compact spacing ---- */
@@ -593,14 +645,15 @@ a {
   :root { --gutter: 16px; }
   .container { max-width: calc(100% - 32px); }
 
-  .hero__art { width: min(420px, calc(100% - 32px)); }
+  .hero__art { width: 120vw; max-width: none; position: relative; left: 50%; transform: translateX(-50%); margin-bottom: -40px; }
   .hero__inner { padding: 8px 0 28px; }
   .hero__brand--m { height: 40px; margin-top: 22px; }
-  .hero__title { margin-top: 22px; }
+  .hero__title { margin-top: 6px; }
   .hero__title .w-bold { font-size: 44px; margin-left: 6px; }
   .hero__title .w-reg, .hero__title .w-reg2 { font-size: 34px; }
   .hero__title .w-reg2 { margin-left: 7px; }
   .hero__title .w-sm { font-size: 26px; }
+  .hero__title img { width: 280px; }
   .hero__desc, .hero__price, .hero__note { width: auto; max-width: 100%; }
   .hero__desc { font-size: 16px; margin-top: 20px; }
   .hero__price { font-size: 21px; margin-top: 22px; }
@@ -613,7 +666,7 @@ a {
 
   .trio { padding: 56px 0 8px; }
   .trio__grid { gap: 32px; }
-  .trio__icon { width: 56px; height: 56px; margin-bottom: 18px; }
+  .trio__icon { width: 72px; height: 74px; margin-bottom: 18px; }
 
   .benefit { padding: 24px 0 40px; }
   .benefit__title { font-size: 21px; }
